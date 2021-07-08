@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+dist/
+
+.vscode/
+styles/
+
+npm-debug.log
+# yarn-error.log
+
+*.log
+.idea
