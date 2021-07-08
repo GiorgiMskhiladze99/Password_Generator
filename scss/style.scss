@@ -19,21 +19,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  width: 480px;
-  height: fit-content;
   margin: 0;
   padding: 20px;
-  // @include marg-padd(
-  //   $margin-default,
-  //   $margin-default,
-  //   $margin-default,
-  //   $margin-default,
-  //   $padding-m,
-  //   $padding-m,
-  //   $padding-m,
-  //   $padding-m
-  // );
+  @include wh($fixed-width, fit-content);
   @include disp(flex, column, center, center);
   border-radius: $radius;
   background-color: $container-bg;
@@ -41,205 +29,173 @@ body {
 
   .header {
     user-select: none;
-    // cursor: default;
-    width: 100%;
+    @include wh($full-width, auto);
+
     h1 {
-      font-size: 34px;
-      line-height: 25px;
-      letter-spacing: 0.04em;
+      font-size: $text-l;
+      line-height: $line-height;
+      letter-spacing: $letter-spacing-l;
     }
   }
 
   .actions {
-    width: 95%;
-    height: fit-content;
     position: relative;
+    @include wh(calc(#{$full-width} - 5%), fit-content);
 
     .output-container {
-      width: 100%;
-      height: fit-content;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+      @include wh($full-width, fit-content);
+      @include disp(flex, row, space-between, center);
       margin: 10px 0px;
       padding: 20px;
-      background-color: #1e223f;
-      border-radius: 10px;
-      border: 1px solid #1e223f;
-      transition: 0.3s ease-in-out;
+      background-color: $container-items-bg;
+      border-radius: $radius;
+      border: $border solid $container-items-bg;
+      transition: $transition-dur;
 
       .output {
-        width: 100%;
-        height: 35px;
         pointer-events: none;
-        color: #ffff;
-        cursor: default;
+        @include wh($full-width, $output-fixed-height);
+        font-size: $text-m;
+        line-height: $line-height-m;
+        letter-spacing: $letter-spacing-xl;
+        color: $default;
         background: none;
         border: none;
         outline: none;
-        font-size: 28px;
-        line-height: 34px;
-        letter-spacing: 0.05em;
-        // margin: 0 10px 0 10px;
       }
 
       .copy-btn {
-        position: relative;
         cursor: pointer;
-        color: #ffff;
-        // margin: 0 10px 0 0;
-        width: 30px;
-        height: 30px;
+        position: relative;
+        color: $default;
+        @include wh($btn-width, $btn-height);
+        @include disp(flex, column, center, center);
         border: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 28px;
-        height: fit-content;
 
         svg {
-          width: 100%;
-          fill: #ffff;
-          transition: 0.3s ease-in-out;
+          @include wh($full-width, auto);
+          fill: $default;
+          transition: $transition-dur;
         }
       }
 
       .copy-btn:hover {
         svg {
-          fill: #2196f3;
+          fill: $hover;
         }
       }
     }
 
     .output-container:hover {
-      border: 1px solid #2196f3;
+      border: $border solid $hover;
     }
 
     .length {
       user-select: none;
+      @include disp(flex, column, flex-start, start);
       margin: 15px 0px;
-      background-color: #0b0f2f;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: start;
+      background-color: $container-bg;
 
       .length-label {
         user-select: none;
         margin: 0px 10px;
-        font-size: 12px;
-        opacity: 50%;
+        font-size: $text-xxs;
+        opacity: $opa-half;
 
         .slider-value {
-          opacity: 100%;
+          opacity: $opa-full;
         }
       }
 
       .length-slider {
-        width: 100%;
-        background-color: #0429d6;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         margin: 5px 0px;
-        height: 65px;
         padding: 15px 20px;
-        background: #1e223f;
-        border-radius: 10px;
-        border: 1px solid #1e223f;
-        transition: 0.3s ease-in-out;
+        @include wh($full-width, $setting-height);
+        @include disp(flex, row, space-between, center);
+        background-color: $container-items-bg;
+        border-radius: $radius;
+        border: $border solid $container-items-bg;
+        transition: $transition-dur;
 
         input {
-          width: 80%;
-          height: 3px;
           cursor: pointer;
+          width: calc(#{$full-width} - 20%);
+          height: $inp-height;
         }
       }
 
       .length-slider:hover {
-        border: 1px solid #2196f3;
+        border: $border solid $hover;
       }
     }
 
     .settings {
       user-select: none;
       margin: 0px 0px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: stretch;
+      @include disp(flex, column, space-between, stretch);
 
       .settings-label {
         margin: 0px 10px;
-        font-size: 12px;
-        opacity: 50%;
+        font-size: $text-xxs;
+        opacity: $opa-half;
       }
 
       .setting {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         margin: 5px 0px;
-        height: 65px;
         padding: 15px 20px;
-        background: #1e223f;
-        border-radius: 10px;
-        border: 1px solid #1e223f;
-        transition: 0.3s ease-in-out;
+        @include wh($full-width, $setting-height);
+        @include disp(flex, row, space-between, center);
+        background: $container-items-bg;
+        border-radius: $radius;
+        border: $border solid $container-items-bg;
+        transition: $transition-dur;
 
         label {
-          font-size: 20px;
-          line-height: 24px;
-          letter-spacing: 0.04em;
+          font-size: $label-text;
+          line-height: $line-height;
+          letter-spacing: $letter-spacing-l;
         }
 
         .switch {
           position: relative;
           display: inline-block;
-          width: 60px;
-          height: 34px;
+          @include wh($width-switch, $height-switch);
         }
 
         .switch input {
-          opacity: 0;
-          width: 0;
-          height: 0;
+          @include wh($width-none, $height-none);
+          opacity: $opa-none;
         }
 
         .slider {
-          position: absolute;
           cursor: pointer;
+          position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background-color: #aaaaaa;
+          background-color: $container-input-unchecked;
           -webkit-transition: 0.4s;
-          transition: 0.4s;
+          transition: $transition-dur;
         }
 
         .slider:before {
           position: absolute;
           content: "";
-          height: 26px;
-          width: 26px;
+          @include wh($width-slider, $height-slider);
           left: 4px;
           bottom: 4px;
           background-color: white;
           -webkit-transition: 0.4s;
-          transition: 0.4s;
+          transition: $transition-dur;
         }
 
         input:checked + .slider {
-          background-color: #2196f3;
+          background-color: $hover;
         }
 
         input:focus + .slider {
-          box-shadow: 0 0 1px #2196f3;
+          box-shadow: 0 0 1px $hover;
         }
 
         input:checked + .slider:before {
@@ -258,38 +214,38 @@ body {
       }
 
       .setting:hover {
-        border: 1px solid #2196f3;
+        border: $border solid $hover;
       }
     }
 
     .button {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: fit-content;
+      @include wh($full-width, fit-content);
+      @include disp(flex, row, center, center);
+
       input {
-        margin: 15px 0px;
-        width: 100%;
-        height: 60px;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 22px;
-        letter-spacing: 0.1em;
-        color: #ffff;
-        background: linear-gradient(90deg, #697ee1 0%, #6f55a6 100%);
-        border: none;
-        border-radius: 10px;
-        outline: none;
         cursor: pointer;
-        transition: 0.3s ease-in-out;
+        margin: 15px 0px;
+        @include wh($full-width, $width-switch);
+        font-size: $text-xs;
+        font-weight: bold;
+        line-height: $line-height-s;
+        letter-spacing: $letter-spacing-xs;
+        color: $default;
+        background: linear-gradient(
+          90deg,
+          $container-button1 0%,
+          $container-button2 100%
+        );
+        border-radius: $radius;
+        border: none;
+        outline: none;
+        transition: $transition-dur;
       }
     }
 
     .button {
       input:hover {
-        color: #0b0f2f;
+        color: $container-bg;
       }
     }
   }

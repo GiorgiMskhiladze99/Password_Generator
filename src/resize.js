@@ -1,1 +1,0 @@
-// resizer folmula goes here
