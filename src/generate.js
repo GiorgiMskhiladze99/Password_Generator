@@ -16,7 +16,6 @@ const symbols_arr = "!@#$%^&*_-+=";
 const alpha_lower = "abcdefghijklmnopqrstuvwxyz";
 const alpha_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-
 // start point
 generateBtn.addEventListener("click", () => {
 
@@ -35,7 +34,6 @@ generateBtn.addEventListener("click", () => {
     // udpate length value
     sliderValue.textContent = len;
 });
-
 
 // generate random passwords
 const generatePassword = (len, characters) => {
@@ -67,7 +65,6 @@ copyBtn.addEventListener("click", () => {
     }
 
 });
-
 
 // update length label every change
 setInterval(() => {
