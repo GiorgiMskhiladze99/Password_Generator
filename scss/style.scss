@@ -9,8 +9,7 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  background-color: #444;
+  font-family: $default-font;
+  color: $default;
+  background-color: $body-bg;
 }

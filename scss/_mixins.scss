@@ -1,0 +1,12 @@
+@mixin disp($dps, $dir, $just, $align) {
+  display: $dps;
+  flex-direction: $dir;
+  justify-content: $just;
+  align-items: $align;
+}
+
+/* top | right | bottom | left */
+@mixin marg-padd($mt, $mr, $mb, $ml, $pt, $pr, $pb, $pl) {
+  margin: $mt, $mr, $mb, $ml;
+  padding: $pt, $pr, $pb, $pl;
+}
